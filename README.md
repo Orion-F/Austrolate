@@ -1,2 +1,3 @@
 # Austrolate
-Website for translating Austrian German and related tools.
+
+This website contains tools that help with translating Austrian German and related tasks.
