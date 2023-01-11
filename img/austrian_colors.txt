@@ -1,0 +1,3 @@
+FLAG:
+red: #C8102E
+white: #FFFFFF

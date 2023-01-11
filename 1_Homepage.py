@@ -27,7 +27,8 @@ def generate_page() -> None:
     st_util.hide_streamlit_labels()
 
     # Read README.md and render it as markdown
-    st.markdown(file_util.get_file_as_string("README.md"))
+    st.markdown("# Austrolate")
+    st.write("Austrolate is a tool for translating between Austrian German and Standard German.")
 
     dict_de_deAT, dict_deAT_de = get_dicts()
 
@@ -35,21 +36,21 @@ def generate_page() -> None:
     # - a text area input for Deutsch
     # - a button "Translate to Wienerisch"
     # - if the button is clicked, then a uneditable text area output for Wienerisch using the dictionary
-    with st.form("Translate to Wienerisch"):
+    with st.form("Translate to Austrian German"):
         st.markdown("### Standard German")
         de_text = st.text_area("Write text below:")
-        submit_button = st.form_submit_button("Translate to Vienna German")
+        submit_button = st.form_submit_button("Translate to Austrian German")
         if submit_button:
             deAT_text = translate_using_dict(de_text, dict_de_deAT)
-            st.markdown("### Vienna German")
+            st.markdown("### Austrian German")
             st.code(deAT_text, language="markdown")
     
     # Create a form that contains:
     # - a text area input for Wienerisch
     # - a button "Translate to Deutsch"
     # - if the button is clicked, then a uneditable text area output for Deutsch using the dictionary
-    with st.form("Translate to Deutsch"):
-        st.markdown("### Vienna German")
+    with st.form("Translate to Standard German"):
+        st.markdown("### Austrian German")
         deAT_text = st.text_area("Write text below:")
         submit_button = st.form_submit_button("Translate to Standard German")
         if submit_button:
