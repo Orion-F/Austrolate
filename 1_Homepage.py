@@ -5,6 +5,11 @@ Purpose: Define the home page.
 # Third-party imports
 import streamlit as st
 
+# Python imports
+import json
+import re
+
+# Local imports
 from util import st_util
 from util import file_util
 
@@ -24,9 +29,7 @@ def generate_page() -> None:
     # Read README.md and render it as markdown
     st.markdown(file_util.get_file_as_string("README.md"))
 
-    de_deAT_dict = get_de_deAT_dict()
-    deAT_de_dict = invert_dict(de_deAT_dict)
-    print(deAT_de_dict)
+    dict_de_deAT, dict_deAT_de = get_dicts()
 
     # Create a form that contains:
     # - a text area input for Deutsch
@@ -37,7 +40,7 @@ def generate_page() -> None:
         de_text = st.text_area("Write text below:")
         submit_button = st.form_submit_button("Translate to Vienna German")
         if submit_button:
-            deAT_text = translate_using_dict(de_text, de_deAT_dict)
+            deAT_text = translate_using_dict(de_text, dict_de_deAT)
             st.markdown("### Vienna German")
             st.code(deAT_text, language="markdown")
     
@@ -50,56 +53,57 @@ def generate_page() -> None:
         deAT_text = st.text_area("Write text below:")
         submit_button = st.form_submit_button("Translate to Standard German")
         if submit_button:
-            de_text = translate_using_dict(deAT_text, deAT_de_dict)
+            de_text = translate_using_dict(deAT_text, dict_deAT_de)
             st.markdown("### Standard German")
             st.code(de_text, language="markdown")
 
 
 def translate_using_dict(text: str, dictionary: dict) -> str:
     """
-    Translate text using a dictionary.
+    Translate text using a dictionary. If a word is not in the dictionary, then it is not translated.
     """
-    # Split the text into words
-    words = text.split(" ")
-
-    # Translate each word
+    # Split the text into words, accounting for punctuation
+    words = re.split(r"(\W)", text)
+    
     translated_words = []
     for word in words:
-        if word in dictionary:
-            translated_words.append(dictionary[word])
+        if not word:
+            continue
+        is_first_letter_upper = word[0].isupper()
+        if word in dictionary or word.lower() in dictionary:
+            translated_word = dictionary[word if word in dictionary else word.lower()]
+            if is_first_letter_upper:
+                translated_word = translated_word.capitalize()
+            translated_words.append(translated_word)
         else:
             translated_words.append(word)
+    
+    return "".join(translated_words)
 
-    # Join the translated words into a sentence
-    return " ".join(translated_words)
+
 
 
 @st.experimental_singleton
-def get_de_deAT_dict() -> dict:
-    file_path = "de_deAT.csv"
+def get_dicts() -> tuple[dict, dict]:
+    path_de_deAT = "data/de_deAT.json"
+    path_deAT_de = "data/deAT_de.json"
 
-    # Read the file
-    with open(file_path, "r", encoding="utf-8") as file:
-        lines = file.readlines()
+    with open(path_de_deAT, "r", encoding="utf-8") as file:
+        dict_de_deAT = json.load(file)
+    
+    with open(path_deAT_de, "r", encoding="utf-8") as file:
+        dict_deAT_de = json.load(file)
 
-    # Remove first element of lines, since it
-
-    # Create a dictionary
-    de_deAT_dict = {}
-    for line in lines:
-        de, deAT = line.split(",")
-        # remove "\n" from deAT
-        deAT = deAT[:-1]
-
-        de_options = de.split(";")
-        for option in de_options:
-            de_deAT_dict[option] = deAT
-
-    return de_deAT_dict
+    return dict_de_deAT, dict_deAT_de
 
 
 def invert_dict(dictionary: dict) -> dict:
-    return {v: k for k, v in dictionary.items()}
+    inverted = {}
+    for key, value in dictionary.items():
+        if not value in inverted:
+            # only add it if it is not already in the dictionary
+            inverted[value] = key
+    return inverted
 
 
 if __name__ == "__main__":

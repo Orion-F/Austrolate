@@ -2,12 +2,15 @@
 weiß,woaß
 nicht,net
 für,foa
-gescheit, gschied
-Über etwas lustig machen;eher schadenfroh.,I hau mi o.
+gehe,geh
+ein,a
+eine,a
+einen,a
+einer,a
+eines,a
+gescheit,gschied
 öffentliche Verkehrsmittel,Öffis
-ärgern. gift di net = ärgere dicht nicht,gift`n
-Ärgere mich nicht oder halt mich nicht für dumm.,Pflanz mi net.
-Ärger;Streit,Wüst an Wickl?
+Ärgere mich nicht,Pflanz mi net.
 Ärger,Zores
 zähe,zach
 Zuwanderer,Zuagrasta
@@ -16,21 +19,22 @@ zur Sache kommen,Tacheles reden
 zum Narren halten,pflanz`n
 zu einem Zopf geflochtenes Weißgebäck,Strietzl
 Zigarette,Tschick
-Witz; Unwahrheit,Schmäh
+Witz,Schmäh
 Willst du Streit?,Wüst an Kelch?
-Willkommens- oder Abschiedsgruß,Servus!
-Wiener Würstchen,Frankfurter
-wertlose Gegenstände;Gerümpel,Klumpert
-Wenn etwas nicht funktioniert.,Des is a Schass.
+wertlose Gegenstände,Klumpert
+Wenn etwas nicht funktioniert,Des is a Schass
 Weißkohl,Kraut
 Weinlokal,Heuriger
 weinen,plärr`n
 WC,Häusl
 Was willst du?,Wos wüst?
-Vormittagsjause;Brotzeit,Gabelfrühstück
+Vormittagsjause,Gabelfrühstück
+Brotzeit,Gabelfrühstück
 viereckige Mehlspeise aus Plunderteig mit Quark,Golatschn
-viel essen;schmeicheln,einehaun
-verärgert;mißmutig,grantig
+viel essen,einehaun
+schmeicheln,einehaun
+verärgert,grantig
+mißmutig,grantig
 verzweifelt,desperat
 Verschwinde!,Geh Di brausn!
 Verschwinde!,Mach an Schuach
@@ -38,60 +42,73 @@ Verschwinde!,Schleich Di!
 Verkaufsstand,Standl
 verkaufen,verscherbeln
 verführen,vernosch`n
-unvergorener Traubensaft; vergorener Saft aus Äpfeln und Birnen,Most
+unvergorener Traubensaft,Most
 ungezogenes Kind,Fratz
 umzäunter Fußballplatz,Käfig
 Tüte,Sackarl
 Treppe,Stiege
 Tomate,Paradeiser
-tollpatschig;ungeschickt,patschert
+tollpatschig,patschert
+ungeschickt,patschert
 Tischfußballspiel,Wuzzler
 Taxifahrer,Taxler
 Tabakwarengeschäft,Trafik
-T-Shirt;Unterhemd,Leiberl
-stürzen;hinfallen,a Brezn reissn
+T-Shirt,Leiberl
+Unterhemd,Leiberl
+stürzena, Brezn reissn
+hinfallen,a Brezn reissn
 Stuhl,Sess´l
 Streichhölzer,Zinder
 Straßenbahn,Bim
-stehlen;berauben,fladern
+stehlen,fladern
+berauben,fladern
 Stechmücke,Gelse
-starker Raucher; Drogenabhängiger,Giftler
+starker Raucher,Giftler
+Drogenabhängiger,Giftler
 Stangenbohnen,Fisol`n
 Stadium der Gärung von Traubensaft zum Wein,Sturm
 Spüle,Abwasch
 Spätzle.,Nockerln
-sprachlos;erstaunt,baff
-sich herumtreiben;vagabundieren,strawanz`n
-Semmelbrösel;Paniermehl,Brösel
+sprachlos,baff
+erstaunt,baff
+sich herumtreiben,strawanz`n
+vagabundieren,strawanz`n
+Semmelbrösel,Brösel
+Paniermehl,Brösel
 Sei still!,Halt die Goschn!
-sehr heftig lachen;amüsieren,zerwutzeln
+sehr heftig lachen,zerwutzeln
+amüsieren,zerwutzeln
 Schweinsbraten,Bratl
 Schwarzarbeiter,Pfuscher
 Schrank,Kasten
 Schornsteinfeger,Rauchfangkehrer
 Schorle,G'spritzter
 schnell,gach
-Schnapsglas;2 cl,Stamperl
+Schnapsglas,Stamperl
 Schlagsahne,Schlagobers
-schlagen;hauen,pracken
+schlagen,pracken
+hauen,pracken
 schlafen,mützeln
 saure Sahne,Sauerrahm
 Sahne,Rahm
 Rührei,Eierspeis´
-rollen;hin und her wälzen;drehen,wuzeln
-Rahm;Sahne,Obers
+rollen,wuzeln
+drehen,wuzeln
+Rahm,Obers
+Sahne,Obers
 Ragout,G´schnetzelt`s
 Quark,Topfn
 Polizist,Kieberer
 plaudern,plauschen
-Platz vor einem Wirts- bzw. Gasthaus,Schanigarten
-Pflaumenmus;Pflaumenmarmelade,Powidl
+Platz vor einem Gasthaus,Schanigarten
+Pflaumenmus,Powidl
+Pflaumenmarmelade,Powidl
 Pflaumenkompott,Zwetschknrester
 Pflaume,Zwetschkn
 Pfannkuchen,Palatschinkn
 Pantoffeln,Schlapfen
 Paniermehl,Semmelbresel
-paktieren;geheime Geschäfte machen,packeln
+paktieren,packeln
 Orangensaft,Cappy
 Ohrfeige,Watsche
 Obdachloser,Sandler
@@ -105,43 +122,49 @@ Mund,Pappn
 Mißgeschick,Hoppala
 mittelgroße Tasse,Häferl
 mit dem Hund Gassi gehen,äußerln gehen
-minderwertige Ware;Trödel,Ramsch
+Trödel,Ramsch
+minderwertige Ware,Ramsch
 Meerrettich,Kren
 Mais,Kukuruz
 leichtsinniger aber liebenswerter Mensch,Hallodri
-Leckerbissen;Gustostück,Schmankerl
+Leckerbissen,Schmankerl
+Gustostück,Schmankerl
 Lebensmittelkleinhändler,Greißler
 Lauch,Porre
-Lappen; billiges Kleid,Fetzn
+Lappen,Fetzn
+billiges Kleid,Fetzn
 Küsschen,Busserl
 Käsekrainer,Eitrige
-kränklich;krank,marod
+krank,marod
+kränklich,marod
 Krankenwagen,Rettung
 Kopfkissen,Polster
 Konfitüre,Marmelad`
 Knoblauch,Knofl
-knackig;knusprig,resch
+knackig,resch
+knusprig,resch
 Knabe,Bua
 Kloß,Knedl
-kleines;bemitleidenswertes Wesen,Zwutschkerl
 kleines Wirtshaus,Beisl
-kleines Kind;Baby,Butzerl
-kleiner Kasten;Fernsehapparat,Kastl
+Baby,Butzerl
+kleines Kind,Butzer
+kleiner Kasten,Kastl
+Fernsehapparat,Kastl
 kleben,picken
 Klebeetikett,Pickerl
 Klebeband,Tixo
 Kellner,Ober
 Karussell,Ringelspiel
-Kartoffel(n),Erdäpfel
+Kartoffel,Erdäpfel
 Kaffee mit aufgeschäumter Milch,Melange
 Kaffe im Glas mit Schlagobershaube,Einspänner
-jetzt wird es dramatisch;ernst,ans Eingemachte gehen
-jammern;nörgeln;klagen,raunzen
+jammern,raunzen
+nörgeln,raunzen
+klagen,raunzen
 jammern,sudern
 Injektion,Jaukerl
-in Fett geschmorte Mehlspeisen;Kaiserschmarrn.,Schmarrn
+Kaiserschmarrn,Schmarrn
 Ich werde noch verrückt.,Ich wer a Laberl.
-Ich gehe jetzt auf´s WC.,I geh pinkeln.
 ich bin schon weg,I bin schon a Wolkn
 Ich begrüße dich!,Grias di!
 Ich auch,I a.
@@ -153,36 +176,44 @@ Hausschuh,Patschen
 Hausmeister,Hausbesorger
 Halt' den Mund! Sei still!,Gusch!
 Hackfleisch,Faschiert´s
-habe die Ehre; höflicher Gruß sowie Ausruf des Erstaunens,Hawedehre!
+habe die Ehre,Hawedehre!
 großer Bauch,Wampe
 gesünder geht es nicht,pumperlg'sund
-Geräuchertes;Rauchfleisch,G´selcht´s
-Germknödel;Dampfnudel;Mehlspeise,Buchtl
-gemeiner;hinterhältiger Mensch,Gfrast
+Geräuchertes,G´selcht´s
+Rauchfleisch,G´selcht´s
+Germknödel,Buchtl
+Dampfnudel,Buchtl
+Mehlspeise,Buchtl
+gemeiner,Gfrast
+hinterhältiger Mensch,Gfrast
 Geldtasche,Bersl
 Geld,Marie
-gekochtes;mageres Rindfleisch,Tafelspitz
 Gehen wir!,Gemma!
 gebürtig,waschecht
 Fünfer,Fleck
 Freund,Hawara
-frech;vorlaut,goschert
-Fliege;Schleife,Mascherl
+frech,goschert
+vorlaut,goschert
+Fliege,Mascherl
+Schleife,Mascherl
 Fleischkäse,Leberkaas
-feuchter Schmutz;Schlamm,Gatsch
+feuchter Schmutz,Gatsch
+Schlamm,Gatsch
 fescher Mann,Feschak
 feines Hefegebäck,Brioche
-faulenzen;nichts tun,tachinieren
-Fahrscheinkontrollor in öffentlichen Verkehrsmitteln,Schwoarzkappler
+faulenzen,tachinieren
+nichts tun,tachinieren
+Fahrscheinkontrollor,Schwoarzkappler
 essen,habern
 ersklassig,leiwand
-erbrechen;kotzen,speib`n
+erbrechen,speib`n
+kotzen,speib`n
 Eisschrank,Eiskoast`n
 eine leichte Sache,a g´mahde Wiesn
 ein wenig,bisserl
 Eimer,Kibel
 Edelkastanien,Maroni
-dummer;unangenehmer Mensch (A so a Koffer),Koffer
+dummer,Koffer
 dummer Mensch,Depperta
 dumm,deppert
 Du Alter!,Oida!
@@ -193,7 +224,7 @@ Burenwurst,Burenhäudl
 Burenwurst,Haaße
 Bulette,Fleischlaberl
 Brötchen,Semmel
-Brösel/Ei/Mehl-Kruste für Wiener Schnitzel,Panier
+Kruste für Wiener Schnitzel,Panier
 Brotaufstrich aus Topfen und Gewürzen,Liptauer
 Brotanschnitt,Bugel
 Bonbon,Zuckerl
@@ -203,22 +234,22 @@ Bier/Limonaden-Mischung,Radler
 Bettlaken,Laintichl
 Bett,Hapfn
 betrunken,fett
-Beruhige dich! Mach nicht so ein Theater,Drah kan Fülm!
+Beruhige dich!,Drah kan Fülm!
 Berliner,Krapfen
-belästigen;ärgern,sekkier`n
+belästigen,sekkier`n
+ärgern,sekkier`n
 Beine,Haxn
-Ausruf wenn etwas schlimmes passiert ist.,Jessas Maria
-Auf Wiedersehen! Tschüß!,Baba!
+Tschüß!,Baba!
 auf die Nerven gehen,am Zaga gehen
 arbeiten,hackln
 Arbeit,Hackn
 Apfelsaftschorle,Obi g´spritzt
 Apfelsaft,Obi
-Anschnitt oder das letzte Stück eines Brotlaibes oder Brotweckens;bestimmtes Stück Rindfleisch,Scherzl
+bestimmtes Stück Rindfleisch,Scherzl
 Abschiedsgruß,Pfiat di!
 abgetretene Schuhe,Latschen
 Abfalleimer,Mistkibel
 2 Liter Wein,Doppler
 10 Gramm,Deka
-(sich) langweilen,fadisieren
-(sich) beklagen;leise vor sich hin schimpfen,motschkern
+langweilen,fadisieren
+beklagen,motschkern
