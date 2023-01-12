@@ -63,9 +63,23 @@ def generate_page() -> None:
             st.markdown("### Standard German")
             st.code(de_text, language="markdown")
 
+    # Add elements for showing/hiding the dictionaries
+    st.markdown("### Dictionaries")
+    with st.expander("Click to Show Dictionaries"):
+        tab1, tab2 = st.tabs(["Standard to Austrian German", "Austrian to Standard German"])
+
+        with tab1:
+            st.write("Number of Items: " + str(len(dict_de_deAT)))
+            st.json(dict_de_deAT)
+        
+        with tab2:
+            st.write("Number of Items: " + str(len(dict_deAT_de)))
+            st.json(dict_deAT_de)
+
 
 MAX_PHRASE_LENGTH = 5
 DO_NOT_CAPITALIZE_TRANSLATION = ["I"]
+MAX_ITERATIONS = 100 # Backup cutoff for the translator to prevent infinite loops
 
 def translate_using_dict(text: str, dictionary: dict) -> str:
     """
@@ -74,6 +88,10 @@ def translate_using_dict(text: str, dictionary: dict) -> str:
 
     # Split the text into words, accounting for punctuation
     words = re.split(r"(\W)", text)
+
+    # If the last word is "", we need to remove it because it meshes up the algorithm
+    if words[-1] == "":
+        words = words[:-1]
 
     # CODE: for translating one word at a time
     # translated_words = []
@@ -93,7 +111,12 @@ def translate_using_dict(text: str, dictionary: dict) -> str:
     translated_words = []
     # if a word or a set of words up to MAX_PHRASE_LENGTH is in the dictionary, then translate it
     i = 0
-    while i < len(words) - 1:
+    backup_i = 0
+    print("words:", words)
+    print("len(words):", len(words))
+    while i < len(words) and backup_i < MAX_ITERATIONS:
+        backup_i += 1
+        print(f"words[{i}]= " + words[i])
         # Check if the word is empty
         if not words[i]:
             continue
@@ -115,6 +138,7 @@ def translate_using_dict(text: str, dictionary: dict) -> str:
                 if is_first_letter_upper and (phrase not in DO_NOT_CAPITALIZE_TRANSLATION):
                     translated_word = cap_first(translated_word)
                 translated_words.append(translated_word)
+                print("translated_words:", translated_words)
                 was_translated = True
                 i += j + 1
                 break
