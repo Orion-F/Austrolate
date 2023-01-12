@@ -79,7 +79,7 @@ def generate_page() -> None:
 
 MAX_PHRASE_LENGTH = 5
 DO_NOT_CAPITALIZE_TRANSLATION = ["I"]
-MAX_ITERATIONS = 100 # Backup cutoff for the translator to prevent infinite loops
+MAX_ITERATIONS = 1000 # Backup cutoff for the translator to prevent infinite loops
 
 def translate_using_dict(text: str, dictionary: dict) -> str:
     """
