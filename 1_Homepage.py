@@ -28,9 +28,14 @@ def generate_page() -> None:
 
     # Read README.md and render it as markdown
     st.markdown("# Austrolate")
-    st.write("Austrolate is a tool for translating between Austrian German and Standard German.")
+    st.write(
+        "Austrolate is a tool for translating between Austrian German and Standard German.")
 
     dict_de_deAT, dict_deAT_de = get_dicts()
+
+    if dict_de_deAT is None or dict_deAT_de is None:
+        st.error("Could not load translation files. Please try again later.")
+        return
 
     # Create a form that contains:
     # - a text area input for Deutsch
@@ -44,7 +49,7 @@ def generate_page() -> None:
             deAT_text = translate_using_dict(de_text, dict_de_deAT)
             st.markdown("### Austrian German")
             st.code(deAT_text, language="markdown")
-    
+
     # Create a form that contains:
     # - a text area input for Wienerisch
     # - a button "Translate to Deutsch"
@@ -59,52 +64,123 @@ def generate_page() -> None:
             st.code(de_text, language="markdown")
 
 
+MAX_PHRASE_LENGTH = 5
+DO_NOT_CAPITALIZE_TRANSLATION = ["I"]
+
 def translate_using_dict(text: str, dictionary: dict) -> str:
     """
     Translate text using a dictionary. If a word is not in the dictionary, then it is not translated.
     """
+
     # Split the text into words, accounting for punctuation
     words = re.split(r"(\W)", text)
-    
+
+    # CODE: for translating one word at a time
+    # translated_words = []
+    # for word in words:
+    #     if not word:
+    #         continue
+    #     is_first_letter_upper = word[0].isupper()
+    #     if word in dictionary or word.lower() in dictionary:
+    #         translated_word = dictionary[word if word in dictionary else word.lower()]
+    #         if is_first_letter_upper:
+    #             translated_word = translated_word.capitalize()
+    #         translated_words.append(translated_word)
+    #     else:
+    #         translated_words.append(word)
+
+    # CODE: for translating multiple words (phrases) at a time.
     translated_words = []
-    for word in words:
-        if not word:
+    # if a word or a set of words up to MAX_PHRASE_LENGTH is in the dictionary, then translate it
+    i = 0
+    while i < len(words) - 1:
+        # Check if the word is empty
+        if not words[i]:
             continue
-        is_first_letter_upper = word[0].isupper()
-        if word in dictionary or word.lower() in dictionary:
-            translated_word = dictionary[word if word in dictionary else word.lower()]
-            if is_first_letter_upper:
-                translated_word = translated_word.capitalize()
-            translated_words.append(translated_word)
-        else:
-            translated_words.append(word)
-    
+        # Check if the first letter of the word is uppercase
+        is_first_letter_upper = words[i][0].isupper()
+        # Iterate through the words
+        was_translated = False
+        for j in range(MAX_PHRASE_LENGTH):
+            # Check if the word is out of range
+            if i + j > len(words) + 1:
+                break
+            # Join the words
+            phrase = "".join(words[i:i + j + 1])
+            # print("Checking phrase:", phrase)
+            # Check if the phrase is in the dictionary
+            if phrase.lower() in dictionary:
+                translated_word = dictionary[phrase.lower()]
+                # Check if the first letter of the word is uppercase
+                if is_first_letter_upper and (phrase not in DO_NOT_CAPITALIZE_TRANSLATION):
+                    translated_word = cap_first(translated_word)
+                translated_words.append(translated_word)
+                was_translated = True
+                i += j + 1
+                break
+        if not was_translated:
+            translated_words.append(words[i])
+            i += 1
+
     return "".join(translated_words)
-
-
 
 
 @st.experimental_singleton
 def get_dicts() -> tuple[dict, dict]:
-    path_de_deAT = "data/de_deAT.json"
-    path_deAT_de = "data/deAT_de.json"
+    """Load dictionaries from json files.
 
-    with open(path_de_deAT, "r", encoding="utf-8") as file:
-        dict_de_deAT = json.load(file)
-    
-    with open(path_deAT_de, "r", encoding="utf-8") as file:
-        dict_deAT_de = json.load(file)
+    Returns:
+        tuple[dict, dict]: (de_deAT, deAT_de)
+    """
 
+    # Load German to Austrian dictionary
+    try:
+        with open("data/de_deAT.json", "r", encoding="utf-8") as file:
+            dict_de_deAT = json.load(file)
+    except FileNotFoundError:
+        print("Could not load dictionary de_deAT.json.")
+        return None
+
+    # Load Austrian to German dictionary
+    try:
+        with open("data/deAT_de.json", "r", encoding="utf-8") as file:
+            dict_deAT_de = json.load(file)
+    except FileNotFoundError:
+        print("Could not load dictionary deAT_de.json.")
+        return None
+
+    # Make the keys lowercase
+    dict_de_deAT = make_keys_lowercase(dict_de_deAT)
+    dict_deAT_de = make_keys_lowercase(dict_deAT_de)
+
+    # Return both dictionaries
     return dict_de_deAT, dict_deAT_de
 
+def make_keys_lowercase(dictionary: dict) -> dict:
+    """Make the keys of a dictionary lowercase.
+
+    Args:
+        dictionary (dict): The dictionary to make the keys lowercase.
+
+    Returns:
+        dict: The dictionary with the keys lowercase.
+    """
+    return {key.lower(): value for key, value in dictionary.items()}
 
 def invert_dict(dictionary: dict) -> dict:
+    # Create a new, empty dictionary
     inverted = {}
+    # iterate over the key-value pairs in the dictionary
     for key, value in dictionary.items():
+        # only add it if it is not already in the dictionary
         if not value in inverted:
-            # only add it if it is not already in the dictionary
             inverted[value] = key
+    # return the dictionary
     return inverted
+
+def cap_first(s):
+    # Capitalize the first letter in a string, while keeping the rest of the string intact
+    return s[:1].upper() + s[1:]
 
 
 if __name__ == "__main__":
