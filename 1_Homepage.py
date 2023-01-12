@@ -79,7 +79,7 @@ def generate_page() -> None:
 
 MAX_PHRASE_LENGTH = 5
 DO_NOT_CAPITALIZE_TRANSLATION = ["I"]
-MAX_ITERATIONS = 1000 # Backup cutoff for the translator to prevent infinite loops
+# MAX_ITERATIONS = 1000 # Backup cutoff for the translator to prevent infinite loops
 
 def translate_using_dict(text: str, dictionary: dict) -> str:
     """
@@ -111,12 +111,10 @@ def translate_using_dict(text: str, dictionary: dict) -> str:
     translated_words = []
     # if a word or a set of words up to MAX_PHRASE_LENGTH is in the dictionary, then translate it
     i = 0
-    backup_i = 0
-    print("words:", words)
-    print("len(words):", len(words))
-    while i < len(words) and backup_i < MAX_ITERATIONS:
-        backup_i += 1
-        print(f"words[{i}]= " + words[i])
+    # print("words:", words)
+    # print("len(words):", len(words))
+    while i < len(words):
+        # print(f"words[{i}]= " + words[i])
         # Check if the word is empty
         if not words[i]:
             continue
@@ -138,13 +136,14 @@ def translate_using_dict(text: str, dictionary: dict) -> str:
                 if is_first_letter_upper and (phrase not in DO_NOT_CAPITALIZE_TRANSLATION):
                     translated_word = cap_first(translated_word)
                 translated_words.append(translated_word)
-                print("translated_words:", translated_words)
+                # print("translated_words:", translated_words)
                 was_translated = True
-                i += j + 1
+                i += j
                 break
         if not was_translated:
             translated_words.append(words[i])
-            i += 1
+        
+        i += 1
 
     return "".join(translated_words)
 
